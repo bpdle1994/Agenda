@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📂 Proyecto: Agenda de Contactos
 
 ## 📝 Descripción del Proyecto
@@ -60,3 +61,6 @@ Sigue estos pasos para subir tu proyecto a un nuevo repositorio en GitHub usando
 
 ## ✍️ Autor
 * **[Tu Nombre Completo]** - [Tu perfil de GitHub](URL_de_tu_perfil)
+=======
+# Agenda-de-contactos
+>>>>>>> b183f6ebd66f71f4f80dc6335fd1d5e05ec4a494
