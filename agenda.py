@@ -1,33 +1,56 @@
-def agregar_contacto(agenda):
-    """Permite al usuario agregar un nuevo contacto a la agenda."""
-    nombre = input("Ingresa el nombre del contacto: ")
-    telefono = input("Ingresa el número de teléfono: ")
-    agenda[nombre] = telefono
-    print(f"✅ Contacto '{nombre}' agregado con éxito.")
+# La clase Contacto encapsula los datos de un solo contacto.
+class Contacto:
+    def __init__(self, nombre, telefono):
+        self.nombre = nombre
+        self.telefono = telefono
 
-def buscar_contacto(agenda):
-    """Busca y muestra la información de un contacto por su nombre."""
-    nombre = input("Ingresa el nombre del contacto a buscar: ")
-    if nombre in agenda:
-        print(f"📞 Contacto encontrado: {nombre} - {agenda[nombre]}")
-    else:
-        print(f"❌ Contacto '{nombre}' no encontrado.")
+    # Este metodo define cómo se muestra el objeto Contacto cuando se imprime.
+    def __str__(self):
+        return f"{self.nombre}: {self.telefono}"
 
-def mostrar_contactos(agenda):
-    """Muestra todos los contactos de la agenda en orden alfabético."""
-    if not agenda:
-        print("La agenda está vacía.")
-        return
+# La clase Agenda gestiona la colección de objetos Contacto.
+class Agenda:
+    def __init__(self):
+        # Usamos un diccionario para guardar los contactos por su nombre.
+        self.contactos = {}
 
-    print("--- Agenda de Contactos ---")
-    nombres_ordenados = sorted(agenda.keys())
-    for nombre in nombres_ordenados:
-        print(f"{nombre}: {agenda[nombre]}")
-    print("-------------------------")
+    def agregar_contacto(self):
+        nombre = input("Ingresa el nombre del contacto: ")
+        # Verificamos si el contacto ya existe.
+        if nombre in self.contactos:
+            print("❌ Este contacto ya existe.")
+            return
+
+        telefono = input("Ingresa el número de teléfono: ")
+        # Creamos una instancia de la clase Contacto.
+        nuevo_contacto = Contacto(nombre, telefono)
+        self.contactos[nombre] = nuevo_contacto
+        print(f"✅ Contacto '{nombre}' agregado con éxito.")
+
+    def buscar_contacto(self):
+        nombre = input("Ingresa el nombre del contacto a buscar: ")
+        if nombre in self.contactos:
+            # Accedemos al objeto Contacto y usamos su método __str__.
+            print(f"📞 Contacto encontrado: {self.contactos[nombre]}")
+        else:
+            print(f"❌ Contacto '{nombre}' no encontrado.")
+
+    def mostrar_contactos(self):
+        if not self.contactos:
+            print("La agenda está vacía.")
+            return
+
+        print("\n--- Agenda de Contactos ---")
+        # Obtenemos los nombres (claves) y los ordenamos.
+        nombres_ordenados = sorted(self.contactos.keys())
+        for nombre in nombres_ordenados:
+            # Accedemos a cada objeto Contacto y lo mostramos.
+            print(self.contactos[nombre])
+        print("-------------------------")
 
 def main():
-    """Función principal que ejecuta el menú interactivo."""
-    agenda = {}
+    # Creamos una instancia de la clase Agenda para gestionar el proyecto.
+    mi_agenda = Agenda()
     while True:
         print("\n--- Menú Principal ---")
         print("1. Agregar contacto")
@@ -37,16 +60,16 @@ def main():
         opcion = input("Elige una opción: ")
 
         if opcion == '1':
-            agregar_contacto(agenda)
+            mi_agenda.agregar_contacto()
         elif opcion == '2':
-            buscar_contacto(agenda)
+            mi_agenda.buscar_contacto()
         elif opcion == '3':
-            mostrar_contactos(agenda)
+            mi_agenda.mostrar_contactos()
         elif opcion == '4':
-            print("Saliendo de la agenda. ¡Hasta pronto!")
+            print("Saliendo de la agenda.")
             break
         else:
-            print("Opción no válida. Inténtalo de nuevo.")
+            print("Opción no válida.")
 
 if __name__ == "__main__":
     main()
