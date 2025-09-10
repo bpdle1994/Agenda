@@ -29,7 +29,7 @@ Para la funcionalidad de "Mostrar todos los contactos", el programa utiliza la f
 ## 🎨 Diagrama de Clase
 Este diagrama de clases ilustra la estructura y las relaciones entre los componentes de la agenda, demostrando la arquitectura de programación orientada a objetos.
 
-![Diagrama de Clases del Proyecto](diagrama de clases.png)
+![Diagrama de Clases del Proyecto](diagramadeclases.png)
 
 ## 🛠️ Cómo ejecutar el programa
 1.  Asegúrate de tener **Python** instalado en tu computadora. Puedes verificarlo abriendo una terminal y ejecutando `python --version` (o `python3 --version` en algunos sistemas).
