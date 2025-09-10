@@ -67,4 +67,4 @@ Sigue estos pasos para subir tu proyecto a un nuevo repositorio en GitHub usando
     ```
 
 ## ✍️ Autor
-* **[Tu Nombre Completo]** - [Tu perfil de GitHub](URL_de_tu_perfil)
+* **[Brandon Ponce de Leon Espinoza]** - [bpdle1994]
